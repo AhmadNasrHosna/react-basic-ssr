@@ -4,13 +4,16 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "webpack --watch --mode development & nodemon server.js",
+    "dev": "concurrently \"npm run watch-js\" \"npm run watch-node\"",
+    "watch-node": "nodemon server.js",
+    "watch-js": "webpack --watch --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^5.2.0",
     "express": "^4.16.4",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
